@@ -878,11 +878,14 @@ static void stbcc__build_clumps_for_cluster(stbcc_grid *g, int cx, int cy)
    for (j=0; j < STBCC__CLUSTER_SIZE_Y; ++j) {
       for (i=0; i < STBCC__CLUSTER_SIZE_X; ++i) {
          stbcc__tinypoint p = cbi.parent[j][i];
+         //** Minor FIX: Added braces to avoid compiler warning 
          if (p.x == i && p.y == j)
+         {
             if (STBCC__MAP_OPEN(g,x+i,y+j))
                cbi.label[j][i] = label++;
             else
-               cbi.label[j][i] = STBCC__NULL_CLUMPID;
+               cbi.label[j][i] = STBCC__NULL_CLUMPID;            
+         }
       }
    }
 
