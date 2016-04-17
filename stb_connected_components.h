@@ -1,4 +1,4 @@
-// stb_connected_components - v0.93 - public domain connected components on grids
+STBCC_GRID_COUNT_X_LOG2// stb_connected_components - v0.93 - public domain connected components on grids
 //                                                 http://github.com/nothings/stb
 //
 // Finds connected components on 2D grids for testing reachability between
@@ -578,6 +578,10 @@ void stbcc_update_batch_end(stbcc_grid *g)
    stbcc__build_connected_components_for_clumps(g); // @OPTIMIZE: only do this if update was non-empty
 }
 
+/**
+  * @brief It returns the statically defined grid size in bytes 
+  * @note The grid size is defined at compile time by means of the appropriate setup of STBCC_GRID_COUNT_X_LOG2 and STBCC_GRID_COUNT_Y_LOG2 before including the present header file 
+  */
 size_t stbcc_grid_sizeof(void)
 {
    return sizeof(stbcc_grid);
